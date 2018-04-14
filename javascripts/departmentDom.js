@@ -12,10 +12,9 @@ const domString = (departments) => {
   return strang;
 };
 
-const printToDom = (deptArray) => {
+const printDepartmentToDom = (deptArray) => {
   outputDiv.innerHTML = domString(deptArray);
-  console.log('events', events);
   events.addDepartmentEvents();
 };
 
-module.exports = printToDom;
+module.exports = printDepartmentToDom;
