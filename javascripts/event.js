@@ -15,7 +15,8 @@ const hideDepartmentName = (e) => {
 };
 
 const showItems = (e) => {
-  console.log(e.target.previousSibling.dataset.departmentId);
+  const departmentId = e.target.previousSibling.dataset.departmentId;
+  console.log(departmentId);
 };
 
 const addDepartmentEvents = () => {

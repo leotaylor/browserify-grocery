@@ -1,4 +1,5 @@
 let departments = [];
+// let items = [];
 
 const getDepartments = () => {
   return departments;
