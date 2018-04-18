@@ -16,17 +16,35 @@ const cartDomString = (items) => {
     domString +=     `<td>${item.name}</td>`;
     domString +=     `<td>$${item.price.toFixed(2)}</td>`;
     domString +=     `<td>${item.purchaseNum}</td>`;
-    domString +=     `<td>X</td>`;
+    domString +=     `<td><button class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span></button></td>`;
     domString +=   `</tr>`;
   });
   domString += `</table>`;
+  domString += getTotals(items);
   domString += `</div>`;
   return domString;
+};
+
+const getTotals = (items) => {
+  let itemTotal = 0;
+  let priceTotal = 0;
+  items.forEach((item) => {
+    itemTotal += (item.purchaseNum * 1);
+    priceTotal += (item.purchaseNum * item.price);
+  });
+  return totalsString(itemTotal, priceTotal);
 };
 
 const printCartToDom = () => {
   const cartItems = data.getCart();
   cartOutputDiv.innerHTML = cartDomString(cartItems);
+};
+
+const totalsString = (itemNum, total) => {
+  let domString = '';
+  domString += `<h4>Total Number of Items: ${itemNum}</h4>`;
+  domString += `<h4>Total Price: $${total.toFixed(2)}</h4>`;
+  return domString;
 };
 
 module.exports = printCartToDom;
